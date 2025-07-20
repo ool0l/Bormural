@@ -1,63 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
-  background-color: #f9f9f9;
   overflow: hidden;
-}
-
-#toolbar {
-  padding: 10px;
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  position: fixed;
-  width: 100%;
-  z-index: 10;
 }
 
 #board {
-  position: absolute;
-  top: 50px;
-  left: 0;
   width: 100vw;
-  height: calc(100vh - 50px);
+  height: 100vh;
+  background-color: #f4f4f4;
+  position: relative;
   overflow: hidden;
-  cursor: grab;
   transform-origin: 0 0;
+  cursor: grab;
 }
 
 .note {
   position: absolute;
-  width: 160px;
+  width: 180px;
   min-height: 100px;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  color: #333;
-  font-weight: 500;
   cursor: move;
+  color: #333;
+  font-weight: 600;
   user-select: none;
-  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
-.note:hover {
-  opacity: 0.95;
+.hidden {
+  display: none;
 }
 
-button {
-  font-size: 16px;
-  padding: 8px 12px;
-  background: #6c63ff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #5852d6;
-}
-
-#modal {
+#modal, #view-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -67,17 +46,48 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.hidden {
-  display: none;
+  z-index: 10;
 }
 
 .modal-content {
   background: #fff;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
   width: 300px;
-  max-width: 90%;
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #6c63ff;
+  color: white;
+}
+
+button:hover {
+  background-color: #554ce2;
 }

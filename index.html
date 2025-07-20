@@ -7,20 +7,28 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="toolbar">
-    <button id="createNote">➕ Nouvelle idée</button>
-  </div>
-
-  <div id="board" tabindex="0"></div>
+  <div id="board"></div>
 
   <div id="modal" class="hidden">
     <div class="modal-content">
-      <h2 id="modal-title"></h2>
-      <p id="modal-description"></p>
-      <button id="modal-close">Fermer</button>
+      <h2>Nouvelle idée</h2>
+      <input type="text" id="note-title" placeholder="Titre">
+      <textarea id="note-description" placeholder="Description..."></textarea>
+      <div class="buttons">
+        <button id="create-note">Créer</button>
+        <button id="cancel">Annuler</button>
+      </div>
     </div>
   </div>
 
-  <script src="app.js"></script>
+  <div id="view-modal" class="hidden">
+    <div class="modal-content">
+      <h2 id="view-title"></h2>
+      <p id="view-description"></p>
+      <button id="close-view">Fermer</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
